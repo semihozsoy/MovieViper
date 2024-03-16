@@ -6,3 +6,28 @@
 //
 
 import Foundation
+import API
+
+protocol MoviesInteractorInterface: AnyObject {
+    func fetchMovies()
+}
+
+final class MoviesInteractor {
+    weak var presenter: MoviesPresenterInterface?
+}
+
+extension MoviesInteractor: MoviesInteractorInterface, HTTPClient {
+    func fetchMovies() {
+        sendRequest(endpoint: MoviesEndpoint.search(key: "batman"),
+                    responseModel: MoviesResponse.self) { [weak self] result in
+            switch result {
+            case let .success(response):
+                self?.presenter?.moviesFetched(response.search)
+            case let .failure(error):
+                self?.presenter?.moviesFetchedFailed(with: error.localizedDescription)
+            }
+        }
+       
+    }
+}
+
