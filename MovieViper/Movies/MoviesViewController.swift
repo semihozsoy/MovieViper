@@ -59,8 +59,7 @@ extension MoviesViewController: MoviesViewInterface {
     func setupInitialView() {
         tableView.delegate = self
         tableView.dataSource = self
-        let nib = UINib(nibName: "MovieTableViewCell", bundle: .main)
-        tableView.register(nib, forCellReuseIdentifier: "movieCell")
+        tableView.registerNib(MovieTableViewCell.self, bundle: .main)
     }
     
     func setScreenTitle(with title: String) {
@@ -81,9 +80,7 @@ extension MoviesViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell") as? MovieTableViewCell else {
-            return UITableViewCell()
-        }
+        let cell = tableView.dequeueCell(type: MovieTableViewCell.self, indexPath: indexPath)
         cell.configureCell(movie: presenter?.getMovieViewModels()?[indexPath.row])
         return cell
     }
