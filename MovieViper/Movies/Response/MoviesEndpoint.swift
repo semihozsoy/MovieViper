@@ -9,37 +9,42 @@ import Foundation
 import API
 
 enum MoviesEndpoint {
-    case movie(key: String)
+    case movie
+    case movieDetail(id: Int)
 }
 
 extension MoviesEndpoint: Endpoint {
     
     var scheme: String {
-        "http"
+        "https"
     }
     
     var host: String {
-        "www.omdbapi.com"
+        "api.themoviedb.org"
     }
     
     var path: String {
         switch self {
         case .movie:
-            return ""
+            return "/3/movie/top_rated"
+        case let .movieDetail(id):
+            return "/3/movie/\(id)"
         }
     }
     
     var method: RequestMethod {
         switch self {
-        case .movie:
+        case .movie, .movieDetail:
             return .get
         }
     }
     
     var header: [String : String]? {
         switch self {
-        case .movie:
-            return ["Content-Type": "application/json;charset=utf-8"]
+        case .movie, .movieDetail:
+            return  [
+                "Content-Type": "application/json;charset=utf-8"
+            ]
         }
     }
     
@@ -49,12 +54,16 @@ extension MoviesEndpoint: Endpoint {
     
     var queryItems: [String: String]? {
         switch self {
-        case let .movie(key):
-            return ["s": key,"page": "1", "apikey": "2cc4d909"]
+        case .movie, .movieDetail:
+            return ["api_key":"36208b8e44a20dcb221c274d4cc78c10"]
         }
     }
     
-    
+    // https://api.themoviedb.org/3/movie/top_rated?api_key=36208b8e44a20dcb221c274d4cc78c10&language=en-US&page=1
     // URLQueryItem(name: "s", value: "guard"),URLQueryItem(name: "apikey", value: "2cc4d909")
     // http://www.omdbapi.com/?s=guard&type=movie&page=1&apikey=2cc4d909
+}
+
+struct Constant {
+    static var imageBaseUrl: String {"https://image.tmdb.org/t/p/w500/"}
 }
