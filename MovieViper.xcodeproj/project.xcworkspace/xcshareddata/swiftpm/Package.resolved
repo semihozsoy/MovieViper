@@ -1,0 +1,23 @@
+{
+  "pins" : [
+    {
+      "identity" : "api",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/semihozsoy/API",
+      "state" : {
+        "branch" : "main",
+        "revision" : "02b1eace0522214bb4653008e1b42024d569620c"
+      }
+    },
+    {
+      "identity" : "sdwebimage",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SDWebImage/SDWebImage.git",
+      "state" : {
+        "revision" : "73b9397cfbd902f606572964055464903b1d84c6",
+        "version" : "5.19.0"
+      }
+    }
+  ],
+  "version" : 2
+}
