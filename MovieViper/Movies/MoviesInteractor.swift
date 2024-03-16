@@ -18,7 +18,7 @@ final class MoviesInteractor {
 
 extension MoviesInteractor: MoviesInteractorInterface, HTTPClient {
     func fetchMovies() {
-        sendRequest(endpoint: MoviesEndpoint.search(key: "batman"),
+        sendRequest(endpoint: MoviesEndpoint.movie(key: "batman"),
                     responseModel: MoviesResponse.self) { [weak self] result in
             switch result {
             case let .success(response):
