@@ -54,7 +54,7 @@ extension MoviesPresenter: MoviesPresenterInterface {
     }
     
     func movieDetail(_ index: Int) {
-        router?.routeToDetail(with: movieViewModels?[index])
+        router?.routeToDetail(with: movieViewModels?[index].movieId)
     }
 }
 

@@ -11,7 +11,7 @@ protocol MoviesRouterInterface: AnyObject {
     func popBack()
     func performSegue(with identifier: String)
     func presentPopUp(with message: String)
-    func routeToDetail(with detail: MovieItems?)
+    func routeToDetail(with detail: Int?)
     static func createModule(using navigationController: UINavigationController) -> MoviesViewController
 }
 
@@ -50,14 +50,16 @@ extension MoviesRouter: MoviesRouterInterface {
     }
     
     func presentPopUp(with message: String) {
-        let alertController = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
-        self.navigationController?.visibleViewController?.present(alertController, animated: true, completion: nil)
+        DispatchQueue.main.async { [weak self] in
+            let alertController = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+            self?.navigationController?.visibleViewController?.present(alertController, animated: true, completion: nil)
+        }
     }
     
-    func routeToDetail(with detail: MovieItems?) {
+    func routeToDetail(with id: Int?) {
         let detailVC = MovieDetailRouter.createModule()
-        detailVC.presenter?.viewModel = detail
+        detailVC.presenter?.movieId = id
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
 }

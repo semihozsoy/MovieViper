@@ -36,10 +36,10 @@ final class MovieDetailViewController: UIViewController {
 extension MovieDetailViewController: MovieDetailViewInterface {
     
     func setupViews() {
-        movieImage.sd_setImage(with: URL(string: presenter?.viewModel?.movieImage ?? ""))
-        movieName.text = "Movie Name: \(presenter?.viewModel?.movieName ?? "")"
-        movieYear.text = "Movie Year: \(presenter?.viewModel?.movieYear ?? "")"
-        movieType.text = "Type: \(presenter?.viewModel?.movieType ?? "")"
+        movieImage.sd_setImage(with: URL(string: "\(Constant.imageBaseUrl)\(presenter?.movieDetail?.movieImage ?? "")"))
+        movieName.text = "Movie Name: \(presenter?.movieDetail?.movieName ?? "")"
+        movieYear.text = "Movie Year: \(presenter?.movieDetail?.movieYear ?? "")"
+        movieType.text = "Overview:\n \(presenter?.movieDetail?.movieDetail ?? "")"
     }
     
     func setScreenTitle(with title: String) {

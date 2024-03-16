@@ -17,7 +17,7 @@ class MovieTableViewCell: UITableViewCell {
     }
     
     func configureCell(movie: MovieItems?) {
-        movieImage.sd_setImage(with: URL(string: movie?.movieImage ?? ""))
+        movieImage.sd_setImage(with: URL(string: "\(Constant.imageBaseUrl)\(movie?.movieImage ?? "")"))
         movieNameLabel.text = movie?.movieName ?? ""
     }
     

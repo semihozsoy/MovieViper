@@ -8,6 +8,7 @@
 import UIKit
 
 protocol MovieDetailRouterInterface: AnyObject {
+    func presentPopUp(with message: String)
     static func createModule() -> MovieDetailViewController
 }
 
@@ -38,5 +39,13 @@ extension MovieDetailRouter: MovieDetailRouterInterface {
         interactor.presenter = presenter
         router.presenter = presenter
         return view
+    }
+    
+    func presentPopUp(with message: String) {
+        DispatchQueue.main.async { [weak self] in
+            let alertController = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+            self?.navigationController?.visibleViewController?.present(alertController, animated: true, completion: nil)
+        }
     }
 }
