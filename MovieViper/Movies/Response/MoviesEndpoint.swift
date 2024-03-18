@@ -58,10 +58,6 @@ extension MoviesEndpoint: Endpoint {
             return ["api_key":"36208b8e44a20dcb221c274d4cc78c10"]
         }
     }
-    
-    // https://api.themoviedb.org/3/movie/top_rated?api_key=36208b8e44a20dcb221c274d4cc78c10&language=en-US&page=1
-    // URLQueryItem(name: "s", value: "guard"),URLQueryItem(name: "apikey", value: "2cc4d909")
-    // http://www.omdbapi.com/?s=guard&type=movie&page=1&apikey=2cc4d909
 }
 
 struct Constant {
