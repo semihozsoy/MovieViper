@@ -1,0 +1,56 @@
+{
+  "page": 1,
+  "results": [
+    {
+      "adult": false,
+      "backdrop_path": "/backdrop1.jpg",
+      "genre_ids": [28, 12, 878],
+      "id": 1,
+      "original_language": "en",
+      "original_title": "The Dark Knight",
+      "overview": "Batman raises the stakes in his war on crime.",
+      "popularity": 123.45,
+      "poster_path": "/poster1.jpg",
+      "release_date": "2008-07-18",
+      "title": "The Dark Knight",
+      "video": false,
+      "vote_average": 9.0,
+      "vote_count": 25000
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/backdrop2.jpg",
+      "genre_ids": [18, 80],
+      "id": 2,
+      "original_language": "en",
+      "original_title": "The Godfather",
+      "overview": "The aging patriarch of an organized crime dynasty transfers control.",
+      "popularity": 98.76,
+      "poster_path": "/poster2.jpg",
+      "release_date": "1972-03-24",
+      "title": "The Godfather",
+      "video": false,
+      "vote_average": 8.7,
+      "vote_count": 18000
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/backdrop3.jpg",
+      "genre_ids": [16, 10751, 14],
+      "id": 3,
+      "original_language": "en",
+      "original_title": "Spirited Away",
+      "overview": "During her family's move to the suburbs, a sullen 10-year-old girl wanders into a world.",
+      "popularity": 87.54,
+      "poster_path": "/poster3.jpg",
+      "release_date": "2001-07-20",
+      "title": "Spirited Away",
+      "video": false,
+      "vote_average": 8.6,
+      "vote_count": 14000
+    }
+  ],
+  "total_pages": 100,
+  "total_results": 2000
+}
+
